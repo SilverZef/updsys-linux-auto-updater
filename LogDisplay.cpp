@@ -30,9 +30,9 @@ int main(int argv, char* args[])
 
 int GetWidth()
 {
- 	struct winsize w;
-    ioctl(fileno(stdout), TIOCGWINSZ, &w);
-    return (int)(w.ws_col);
+	struct winsize w;
+	ioctl(fileno(stdout), TIOCGWINSZ, &w);
+	return (int)(w.ws_col);
 }
 
 string GetLastLine(string Path)
@@ -40,15 +40,15 @@ string GetLastLine(string Path)
 	ifstream File(Path);
 	string LastLine = "";
 	File.seekg(-2, std::ios_base::end);         //Start at end of file and skips the \n at the end
-    while(File.get() != '\n')
-    {
+	while(File.get() != '\n')
+	{
 		File.seekg(-2, std::ios_base::cur);     //It offsets +1 from .get to continue backwards 
 		if(File.tellg() <= 0)
 		{
 			File.seekg(0);
 			break;
 		}
-    }
+	}
 	getline(File, LastLine);
 	File.close();
 	return LastLine;
