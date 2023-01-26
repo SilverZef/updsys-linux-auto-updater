@@ -1,5 +1,11 @@
-## DISCLAIMER: **USE THESE SCRIPTS AT YOUR OWN RISK**
+## DISCLAIMER: USE THESE SCRIPTS AT YOUR OWN RISK
 
+
+
+## COMMANDS RAN BY SCRIPTS:
+- **sudo zypper refresh**
+- **sudo zypper dup --**
+- **sudo flatpak update -y**
 
 
 
