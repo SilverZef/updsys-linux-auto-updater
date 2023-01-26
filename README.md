@@ -1,20 +1,13 @@
 ## DISCLAIMER: USE THESE SCRIPTS AT YOUR OWN RISK
 
 
-
-
-
 ## COMMANDS RAN BY SCRIPTS:
 - **sudo zypper refresh**
 - **sudo zypper dup -y --allow-vendor-change --force-resolution**
 - **sudo flatpak update -y**
 
 
-
-
-
 ## HOW TO RUN IT?:
-
 
 **Step 1)** cd to the directory where both LogDisplay.cpp and updsys.sh are
 
@@ -30,7 +23,6 @@ use /home/username/...) of NAME from step 2.
 executable. Now you can run the script using ./updsys.sh from updsys.sh
 directory.
 
-
 **Additional Steps:(This allows the use of this script anywhere on 
 the system)**
 
@@ -45,8 +37,6 @@ to run the command anywhere and '' contains the path to updsys.sh.
 
 **Step 4)** Close and reopen terminal. And now you can run the command 
 anywhere with *com_name args*.
-
-
 
 
 
@@ -77,7 +67,6 @@ progress in a file.
                                                                         
 -------------------------------------------------------------------------
 
-
 **After each update this prompt replaces 'ERRORS:'**
 
 Delete Log File ? (y) [y/n/h]: 
@@ -86,7 +75,6 @@ Entering nothing or y deletes the update record
 
 Entering n saves the record as *Zypper/Flatpak_Log.txt or 
 Zypper/Flatpak_Log_n.txt* where n is any +ve integer.
-
 
 
 
@@ -124,8 +112,6 @@ This has the following functions:
 	displayed.
 
 
-
-
 ## HOW TO CHANGE COLORS?:
 
 Both updsys.sh and LogDisplay.cpp have variables col1, col2 and col3
@@ -141,8 +127,6 @@ In LogDisplay.cpp these variables are found at line no: *17*
 section **'HOW TO RUN IT?:'** after changing the variables) 
 
 Change the variables in both files for the desired result.
-
-
 
 
 ## HOW TO CHANGE UPGRADE COMMANDS?:
