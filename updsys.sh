@@ -31,7 +31,7 @@ Remove() #saves/removes log file after updates, log file is used for progress re
         printf "\nEntering h or H will Print this"
         sleep 6
         Remove "$1"		 #calls remove again to ask, i.e it keeps asking until a valid argument is entered
-        				 #as it is if-elif no return required but if expanded upon please add return after each recursive call
+        #as it is if-elif no return required but if expanded upon please add return after each recursive call
     elif [[ "$ch" == "n" ]]
     then
     	mv "$path" "$1_$path"
@@ -106,16 +106,16 @@ then
 fi
 if [[ "$arg1" == "" && "$arg2" == "" ]] #if there are no upgrades to be conducted i.e invalid args are entered it prints this
 then
- 	printf "$col1  *********************HELP*********************\n"
-    printf "$col2 |                Valid Arguments               |\n"
-    printf "$col1 |----------------------------------------------|\n"
-    printf "$col2 |         0 or a or A for Both Updates         |\n"
-    printf "$col2 |z and f in your Preferred Order to Update Both|\n"
-    printf "$col2 |        1 or z or Z for Zypper Update         |\n"
-    printf "$col2 |      2 or f or F for Flatpak Update          |\n"
-    printf "$col3 |    Any Other Configuration for this Screen   |\n"
- 	printf "$col1  ********************************************** $res\n"
-    exit 1
+	printf "$col1  *********************HELP*********************\n"
+	printf "$col2 |                Valid Arguments               |\n"
+	printf "$col1 |----------------------------------------------|\n"
+	printf "$col2 |         0 or a or A for Both Updates         |\n"
+	printf "$col2 |z and f in your Preferred Order to Update Both|\n"
+	printf "$col2 |        1 or z or Z for Zypper Update         |\n"
+	printf "$col2 |      2 or f or F for Flatpak Update          |\n"
+	printf "$col3 |    Any Other Configuration for this Screen   |\n"
+	printf "$col1  ********************************************** $res\n"
+	exit 1
 fi
 
 printf "${col1}Super User Access Required Enter Password: $col2\n"
