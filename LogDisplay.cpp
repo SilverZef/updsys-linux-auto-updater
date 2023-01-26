@@ -23,7 +23,7 @@ int main(int argv, char* args[])
 		Progress = GetLastLine(Path);
 		int Prog_Len = GetWidth() - PakName.size() - 11;//Allowed length for Progress = Window width - length of pakname - length of the displayed string " Progress: "
 		cout.flush();									//Makes sure everything is printed before moving cursor
-		cout<<GoSecondRow<<ClearLine<<col1<<PakName<<" Progress: "<<col2<<Progress.substr(0, Prog_Len);
+		cout<<GoSecondRow<<ClearLine<<col2<<PakName<<" Progress: "<<col1<<Progress.substr(0, Prog_Len);
 		cout<<ResetCursor<<col3; 
 	}
 }
