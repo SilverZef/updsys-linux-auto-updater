@@ -2,10 +2,14 @@
 
 
 
+
+
 ## COMMANDS RAN BY SCRIPTS:
 - **sudo zypper refresh**
-- **sudo zypper dup --**
+- **sudo zypper dup -y --allow-vendor-change --force-resolution**
 - **sudo flatpak update -y**
+
+
 
 
 
