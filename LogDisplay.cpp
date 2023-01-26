@@ -14,7 +14,7 @@ int main(int argv, char* args[])
 	string pakname = args[1], path = args[2];
 	if(pakname != "Zypper" && pakname != "Flatpak")
 		return 1;
-	string col1 = "\e[38;2;172;73;237m", col2 = "\e[38;2;65;220;76m", col3 = "\e[38;2;255;165;0m";
+	string col1 = "\e[38;2;148;23;226m", col2 = "\e[38;2;65;220;76m", col3 = "\e[38;2;255;165;0m";
 	string Progress = "", Terminator = "UPGRADE_FINISHED";
 	string ResetCursor = "\e[8;1f";
 	string ClearLine = "\e[2K", GoSecondRow = "\e[3;1f";
