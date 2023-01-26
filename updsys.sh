@@ -1,6 +1,6 @@
 LogDisplay="/home/silveros/Scr/LogDisplay"
 
-col1="\e[38;2;173;72;237m"		#purple by default 
+col1="\e[38;2;148;23;226m"		#purple by default 
 col2="\e[38;2;65;220;76m"		#green by default
 col3="\e[38;2;255;165;0m"		#orange by default(used for errors)
 res="\e[0m"
