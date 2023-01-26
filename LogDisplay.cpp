@@ -11,8 +11,8 @@ int main(int argv, char* args[])
 {
 	if(argv != 3)
 		return 1;
-	string pakname = args[1], path = args[2];
-	if(pakname != "Zypper" && pakname != "Flatpak")
+	string PakName = args[1], Path = args[2];
+	if(PakName != "Zypper" && PakName != "Flatpak")
 		return 1;
 	string col1 = "\e[38;2;148;23;226m", col2 = "\e[38;2;65;220;76m", col3 = "\e[38;2;255;165;0m";
 	string Progress = "", Terminator = "UPGRADE_FINISHED";
@@ -20,10 +20,10 @@ int main(int argv, char* args[])
 	string ClearLine = "\e[2K", GoSecondRow = "\e[3;1f";
 	while(Progress != Terminator)
 	{
-		Progress = GetLastLine(path);
-		int Prog_Len = GetWidth() - pakname.size() - 11;//Allowed length for Progress = Window width - length of pakname - length of the displayed string " Progress: "
+		Progress = GetLastLine(Path);
+		int Prog_Len = GetWidth() - PakName.size() - 11;//Allowed length for Progress = Window width - length of pakname - length of the displayed string " Progress: "
 		cout.flush();									//Makes sure everything is printed before moving cursor
-		cout<<GoSecondRow<<ClearLine<<col1<<pakname<<" Progress: "<<col2<<Progress.substr(0, Prog_Len);
+		cout<<GoSecondRow<<ClearLine<<col1<<PakName<<" Progress: "<<col2<<Progress.substr(0, Prog_Len);
 		cout<<ResetCursor<<col3; 
 	}
 }
