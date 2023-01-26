@@ -80,6 +80,7 @@ Execute() #executes commands for repo updates
 killgroup()#function used to kill all running commands and scripts
 {
 	echo -e "${col3}EXITING ... $res"
+	rm "$path"
 	kill 0
 }
 
@@ -126,14 +127,14 @@ clear
 if [[ "$arg1" != "" ]]
 then
 	Execute "$arg1" &
-	$LogDisplay "$arg1" "$path" &
+	$LogDisplay "$path" &
 	wait
 	Remove "$arg1"
 fi
 if [[ "$arg2" != "" ]]
 then
 	Execute "$arg2" & 
-	$LogDisplay "$arg2" "$path" &
+	$LogDisplay "$path" &
 	wait
 	Remove "$arg2"
 fi
