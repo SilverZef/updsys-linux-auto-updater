@@ -1,4 +1,4 @@
-LogDisplay="/home/silveros/Scr/LogDisplay"
+LogDisplay="/home/silveros/LogDisplay"
 
 col1="\e[38;2;148;23;226m"		#purple by default 
 col2="\e[38;2;65;220;76m"		#green by default
