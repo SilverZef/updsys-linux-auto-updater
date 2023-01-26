@@ -9,11 +9,9 @@ string GetLastLine(string Path);
 
 int main(int argv, char* args[])
 {
-	if(argv != 3)
+	if(argv != 2)
 		return 1;
-	string PakName = args[1], Path = args[2];
-	if(PakName != "Zypper" && PakName != "Flatpak")
-		return 1;
+	string Path = args[1];
 	string col1 = "\e[38;2;148;23;226m", col2 = "\e[38;2;65;220;76m", col3 = "\e[38;2;255;165;0m";
 	string Progress = "", Terminator = "UPGRADE_FINISHED";
 	string ResetCursor = "\e[8;1f";
@@ -21,9 +19,9 @@ int main(int argv, char* args[])
 	while(Progress != Terminator)
 	{
 		Progress = GetLastLine(Path);
-		int Prog_Len = GetWidth() - PakName.size() - 11;//Allowed length for Progress = Window width - length of pakname - length of the displayed string " Progress: "
+		int Prog_Len = GetWidth() - 10;//Allowed length for Progress = Window width - length of pakname - length of the displayed string "Progress: "
 		cout.flush();									//Makes sure everything is printed before moving cursor
-		cout<<GoSecondRow<<ClearLine<<col2<<PakName<<" Progress: "<<col1<<Progress.substr(0, Prog_Len);
+		cout<<GoSecondRow<<ClearLine<<col2<<"Progress: "<<col1<<Progress.substr(0, Prog_Len);
 		cout<<ResetCursor<<col3; 
 	}
 }
