@@ -98,7 +98,7 @@ This script has the following functions:
 	and displays 'Status: ', 'Running:' and 'ERRORS:' sections.
 
 - `Run()` --->
-	This calls all neccessary functions for each update including `Update()`
+	This calls all neccessary functions for each update including *Update()*
 	& **LogDisplay.cpp**.
 
 **2) LogDisplay.cpp**:
@@ -149,4 +149,4 @@ is either *Zypper* or *Flatpak* based on whichever update
 its recording. *ChosenName* is by default *Log* but this can be changed.
 
 To change *ChosenName* go to line no: *8* in **updsys.sh** and change
-`path="Log.txt"` to `path="ChosenName.txt"`.
+`path="Log.txt"` to `path="NewChosenName.txt"`.
