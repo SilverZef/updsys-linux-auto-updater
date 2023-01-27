@@ -104,7 +104,7 @@ This script has the following functions:
 **2) LogDisplay.cpp**:
 
 This program displays the 'Progress: ' section by continuosly reading from
-Log.txt file and writing any updates to the screen.
+the update records and writing any updates to the screen.
 
 This has the following functions:
 
