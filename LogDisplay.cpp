@@ -9,8 +9,6 @@ string GetLastLine(string Path);
 
 int main(int argv, char* args[])
 {
-	if(argv != 2)
-		return 1;
 	string Path = args[1];
 	string col1 = "\e[38;2;148;23;226m", col2 = "\e[38;2;65;220;76m", col3 = "\e[38;2;255;165;0m";
 	string Progress = "", Terminator = "UPGRADE_FINISHED";
