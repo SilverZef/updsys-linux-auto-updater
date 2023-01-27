@@ -67,9 +67,9 @@ progress in a file.
                                                                         
 -------------------------------------------------------------------------
 
-**After each update this prompt replaces 'ERRORS:'**
+**After all updates this is prompted for each update: **
 
-Delete Log File ? (y) [y/n/h]: 
+Delete Zypper/Flatpak Log File ? (y) [y/n/h]: 
 
 Entering nothing or y deletes the update record
 
@@ -92,10 +92,14 @@ This script has the following functions:
 - `Remove()` ---> This prompts: 'Delete Log File ? (y) [y/n/h]: ' and 
 	Removes or saves the update record.
 
-- `Execute()` ---> 
-	This Executes the upgrade commands and pipes them to a temporary file 
-	named as *Log.txt/Log_n.txt* using '>' operator and displays 'Status: ',
-	'Running:' and 'ERRORS:' sections.
+- `Update()` ---> 
+	This executes the upgrade commands and pipes them to a temporary file 
+	named as *(Zypper/Flatpak)_(Log/Log_n).txt)* using '>' / '>>' operator 
+	and displays 'Status: ', 'Running:' and 'ERRORS:' sections.
+
+- `Run()` --->
+	This calls all neccessary functions for each update including `Update()`
+	& **LogDisplay.cpp**.
 
 **2) LogDisplay.cpp**:
 
@@ -108,21 +112,21 @@ This has the following functions:
 	Gets Screen width used to make sure display progress does not exceed 
 	screen width to limit it to a single line.
 - `GetLastLine()` --->
-	Reads last line in the Log.txt file which is the progress to be 
+	Reads last line in the update record file which is the progress to be 
 	displayed.
 
 
 ## HOW TO CHANGE COLORS?:
 
-Both updsys.sh and LogDisplay.cpp have variables col1, col2 and col3
-the col1 & col2 are used for general display and col3 is used for error
+Both **updsys.sh** and **LogDisplay.cpp** have variables *col1, col2 and col3*
+the *col1 & col2* are used for general display and *col3* is used for error
 display. These variables are in the format `col = "\e[38;2;r;g;b;m"`
 change the r, g and b part to your desired integer value to change the
 color.
 
-In updsys.sh these variables are found at line no: *3, 4 & 5*
+In **updsys.sh** these variables are found at line no: *3, 4 & 5*
 
-In LogDisplay.cpp these variables are found at line no: *17*
+In **LogDisplay.cpp** these variables are found at line no: *13*
 (Do it before compilation or repeat steps 2 and 3 from the 
 section **'HOW TO RUN IT?:'** after changing the variables) 
 
@@ -132,6 +136,17 @@ Change the variables in both files for the desired result.
 ## HOW TO CHANGE UPGRADE COMMANDS?:
 
 If you want to change the default upgrade commands you can do so by
-changing the variables comm1, comm2 and comm3 found in updsys.sh at 
-line no: *54, 55 and 56*. comm1 variable runs zypper refresh, comm2 runs 
-zypper dup and comm3 runs flatpak update.
+changing the variables *comm1, comm2 and comm3* found in **updsys.sh** at 
+line no: *40, 41 and 42*. *comm1* variable runs zypper refresh, *comm2* runs 
+zypper dup and *comm3* runs flatpak update.
+
+
+## HOW TO CHANGE THE NAME FOR UPDATE RECORDS?:
+
+It is possible to change the name for update records but it will
+always be in the format *UpdateName_ChosenName.txt* where *UpdateName* 
+is either *Zypper* or *Flatpak* based on whichever update
+its recording. *ChosenName* is by default *Log* but this can be changed.
+
+To change *ChosenName* go to line no: *8* in **updsys.sh** and change
+`path="Log.txt"` to `path="ChosenName.txt"`.
