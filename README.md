@@ -52,6 +52,7 @@ progress in a file.
                                                                         
 **ERRORS:**                                                               
 "Here all errors/messages dumped by each updater is displayed"
+
 -------------------------------------------------------------------------
 
 **After all updates this is prompted for each update:**
