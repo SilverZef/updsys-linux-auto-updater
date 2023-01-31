@@ -48,7 +48,7 @@ progress in a file.
                                                                         
 **Progress:** "This shows what is currently happening"                    
                                                                         
-**Running:** "This shows the command that is being executed ex: zypper dup"
+**Running:** "This shows the command that is being executed ex: flatpak update"
                                                                         
 **ERRORS:**                                                               
 "Here all errors/messages dumped by each updater is displayed"
@@ -102,9 +102,9 @@ These variables are found at line no: *1, 2 & 3*
 ## HOW TO CHANGE UPGRADE COMMANDS?:
 
 If you want to change the default upgrade commands you can do so by
-changing the variables *comm1, comm2 and comm3* found in **updsys.sh** at 
-line no: *37, 38 and 39*. *comm1* variable runs zypper refresh, *comm2* runs 
-zypper dup and *comm3* runs flatpak update.
+changing the variables *comm1 and comm2* found in **updsys.sh** at 
+line no: *41, 42*. *comm1* variable runs zypper refresh and zypper dup and
+*comm2* runs flatpak update.
 
 
 ## HOW TO CHANGE THE NAME FOR UPDATE RECORDS?:
@@ -116,3 +116,28 @@ its recording. *ChosenName* is by default *Log* but this can be changed.
 
 To change *ChosenName* go to line no: *6* in **updsys.sh** and change
 `RecordName="Log"` to `RecordName="NewChosenName"`.
+
+
+## I AM NOT ON OPENSUSE CAN I STILL USE THIS?
+
+Yes, theoretically this script can work in other distributions but it requires
+doing the following:
+
+**Step 1)** Know the commands required to do the entire system update. 
+(For example in opensuse these are zypper refresh, zypper dup and flatpak update)
+
+**Step 2)** Divide those commands into 2 logical groups
+(For example in opensuse there are zypper upgrade commands an flatpak update
+commands)
+
+**Step 3)** See Section "**HOW TO CHANGE UPGRADE COMMANDS?:**" and change the
+variables into these command groups in which each command is seperated by a ';'
+if unable to form 2 groups empty one of the variables(ex: comm1="").
+(For the given example comm1="zypper refresh ; zypper dup" and comm2="flatpak
+update")
+
+**Step 4)** Change the variables **Update1** & **Update2** on Line: *7* & *8* to 
+whatever you would like to name the logical groups from **Step 2)**.
+(For the logical groups from Step 2 Update1="Zypper" & Update2="Flatpak").
+
+And Now It Should Work In Your Distribution As Well!
