@@ -1,11 +1,9 @@
 ## DISCLAIMER: USE THE SCRIPT AT YOUR OWN RISK
 
-
 ## COMMANDS RAN BY THE SCRIPT:
 - **sudo zypper refresh**
 - **sudo zypper dup -y --allow-vendor-change --force-resolution**
 - **sudo flatpak update -y**
-
 
 ## HOW TO RUN IT?:
 
@@ -30,14 +28,12 @@ to run the command anywhere and ' ' contains the path to updsys.sh.
 **Step 4)** Open terminal. And now you can run the command 
 anywhere with *com_name args*.
 
-
 ## WHY USE IT?:
 
 It automatically updates both flatpak and zypper repositories without 
 cluttering your screen, it does that by showing current progress in a 
 single line and it saves(if the user choses to) a copy of the update's 
 progress in a file.
-
 
 ## WHAT DOES IT DO?:
 
@@ -64,7 +60,6 @@ Entering nothing or y deletes the update record
 Entering n saves the record as *Zypper/Flatpak_Log.txt or 
 Zypper/Flatpak_Log_n.txt* where n is any +ve integer.
 
-
 ## HOW DOES IT WORK?:
 
 It uses 1 Script: **updsys.sh**
@@ -75,18 +70,18 @@ This script has the following functions:
 	Removes or saves the update record.
 
 - `Update()` ---> 
-	This executes the upgrade commands and pipes them to a temporary file 
-	named as *(Zypper/Flatpak)_(Log/Log_n).txt)* using '>' / '>>' operator 
-	and displays 'Status: ', 'Running:' and 'ERRORS:' sections.
+	This executes the Update commands and writes them to a temporary file 
+	named as *(Zypper/Flatpak)_(Log/Log_n).txt* using '>' operator 
+	and displays 'Status: ', 'Running:' and 'ERRORS:' sections. 
 	
 - `WriteProgress()` --->
 	This displays the *'Progress:'* section of the update by continuosly 
-	reading from update record and writing it to the screen.
+	reading from update record and Writing it to the screen. This uses 
+	ansi sequences to print progress.
 
 - `Run()` --->
-	This calls all neccessary functions for each update including *Update()*
-	& *WriteProgress()*
-
+	This prepares the update record and calls **Update** & **WriteProgress**
+	to Run each update.
 
 ## HOW TO CHANGE COLORS?:
 
@@ -98,25 +93,22 @@ color.
 
 These variables are found at line no: *1, 2 & 3*
 
-
 ## HOW TO CHANGE UPGRADE COMMANDS?:
 
 If you want to change the default upgrade commands you can do so by
 changing the variables *comm1 and comm2* found in **updsys.sh** at 
-line no: *41, 42*. *comm1* variable runs zypper refresh and zypper dup and
+line no: *43, 44*. *comm1* variable runs zypper refresh and zypper dup and
 *comm2* runs flatpak update.
-
 
 ## HOW TO CHANGE THE NAME FOR UPDATE RECORDS?:
 
 It is possible to change the name for update records but it will
-always be in the format *UpdateName_ChosenName.txt* where *UpdateName* 
+always be in the format *UpdateName_BaseName.txt* where *UpdateName* 
 is either *Zypper* or *Flatpak* based on whichever update
-its recording. *ChosenName* is by default *Log* but this can be changed.
+its recording. *BaseName* is by default *Log* but this can be changed.
 
-To change *ChosenName* go to line no: *6* in **updsys.sh** and change
-`RecordName="Log"` to `RecordName="NewChosenName"`.
-
+To change *BaseName* go to line no: *7* in **updsys.sh** and change
+`BaseName="Log"` to `BaseName="NewChosenName"`.
 
 ## I AM NOT ON OPENSUSE CAN I STILL USE THIS?
 
@@ -136,8 +128,8 @@ if unable to form 2 groups empty one of the variables(ex: comm1="").
 (For the given example comm1="zypper refresh ; zypper dup" and comm2="flatpak
 update")
 
-**Step 4)** Change the variables **Update1** & **Update2** on Line: *7* & *8* to 
-whatever you would like to name the logical groups from **Step 2)**.
+**Step 4)** Change the variables **Update1** & **Update2** on Line: *10* & *11*
+to  whatever you would like to name the logical groups from **Step 2)**.
 (For the logical groups from Step 2 Update1="Zypper" & Update2="Flatpak").
 
 And Now It Should Work In Your Distribution As Well!
