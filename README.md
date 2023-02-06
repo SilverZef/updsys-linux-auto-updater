@@ -37,7 +37,7 @@ progress in a file.
 
 ## WHAT DOES IT DO?:
 
-**For each update(zypper and flatpak) this is the screen format:**
+**For each update(zypper and flatpak) this is the screen format(see UpdateSystemScriptExample.png):**
 
 -------------------------------------------------------------------------
 **Status:** "This shows which update is running"                           
