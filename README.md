@@ -37,19 +37,19 @@ progress in a file.
 
 ## WHAT DOES IT DO?:
 
-**For each update(zypper and flatpak) this is the screen format(see UpdateSystemScriptExample.png):**
+**For each update(zypper and flatpak) this is how the screen looks:**
 
--------------------------------------------------------------------------
-**Status:** "This shows which update is running"                           
-                                                                        
-**Progress:** "This shows what is currently happening"                    
-                                                                        
-**Running:** "This shows the command that is being executed ex: flatpak update"
-                                                                        
-**ERRORS:**                                                               
-"Here all errors/messages dumped by each updater is displayed"
+![Update System Example Image](https://github.com/SilverZef/Fancy-Zypper-Updater/blob/main/UpdateSystemScriptExample.png)
 
--------------------------------------------------------------------------
+
+- *Status:* "This shows which update is running"                           
+                                                                        
+- *Progress:* "This shows what is currently happening"                    
+                                                                        
+- *Running:* "This shows the command that is being executed ex: flatpak update"
+                                                                        
+- *ERRORS:* "Here all errors/messages dumped by each updater is displayed"
+
 
 **After all updates this is prompted for each update:**
 
