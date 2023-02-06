@@ -85,9 +85,9 @@ This script has the following functions:
 
 ## HOW TO CHANGE COLORS?:
 
-**updsys.sh** has variables *col1, col2 and col3* the *col1 & col2* variables
-are used for general display and *col3* is used for error
-display. These variables are in the format `col="\e[38;2;r;g;b;m"`
+**updsys.sh** has variables *Color1, Color2 and Color3*. The *Color1 & Color2* variables
+are used for general display and *Color3* is used for error
+display. These variables are in the format `Color="\e[38;2;r;g;b;m"`
 change the r, g and b part to your desired integer value to change the
 color.
 
@@ -96,9 +96,9 @@ These variables are found at line no: *1, 2 & 3*
 ## HOW TO CHANGE UPGRADE COMMANDS?:
 
 If you want to change the default upgrade commands you can do so by
-changing the variables *comm1 and comm2* found in **updsys.sh** at 
-line no: *43, 44*. *comm1* variable runs zypper refresh and zypper dup and
-*comm2* runs flatpak update.
+changing the variables *Command1 and Command2* found in **updsys.sh** at 
+line no: *43, 44*. *Command1* variable runs zypper refresh and zypper dup and
+*Command2* runs flatpak update.
 
 ## HOW TO CHANGE THE NAME FOR UPDATE RECORDS?:
 
@@ -115,21 +115,21 @@ To change *BaseName* go to line no: *7* in **updsys.sh** and change
 Yes, theoretically this script can work in other distributions but it requires
 doing the following:
 
-**Step 1)** Know the commands required to do the entire system update. 
-(For example in opensuse these are zypper refresh, zypper dup and flatpak update)
+**Step 1)** Know the commands required to do the entire system update automatically. 
+(For example in opensuse these are `zypper refresh`, `zypper dup -y` and `flatpak update -y`)
 
 **Step 2)** Divide those commands into 2 logical groups
-(For example in opensuse there are zypper upgrade commands(i.e zypper 
-refresh & zypper dup) and flatpak update commands (i.e flatpak update))
+(For example in opensuse there are **Zypper** upgrade commands(i.e zypper 
+refresh & zypper dup -y) and **Flatpak** update commands (i.e flatpak update -y))
  
 **Step 3)** See Section "**HOW TO CHANGE UPGRADE COMMANDS?:**" and change the
 variables into these command groups in which each command is seperated by a ';'
 if unable to form 2 groups empty one of the variables(ex: comm1="").
-(For the given example comm1="zypper refresh ; zypper dup" and comm2="flatpak
-update")
+(For the given example `Command1="zypper refresh ; zypper dup -y"` and `Command2="flatpak
+update -y"`)
 
 **Step 4)** Change the variables **Update1** & **Update2** on Line: *10* & *11*
 to  whatever you would like to name the logical groups from **Step 2)**.
-(For the logical groups from Step 2 Update1="Zypper" & Update2="Flatpak").
+(For the logical groups from Step 2 `Update1="Zypper"` & `Update2="Flatpak"`).
 
 And Now It Should Work In Your Distribution As Well!
