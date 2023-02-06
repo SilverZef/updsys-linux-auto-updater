@@ -62,7 +62,13 @@ Zypper/Flatpak_Log_n.txt* where n is any +ve integer.
 
 ## HOW DOES IT WORK?:
 
-It uses 1 Script: **updsys.sh**
+It uses **updsys.sh** which can be ran with the following arguments:
+- *0* : This runs both *Zypper* and *Flatpak* Updates in that order.
+- *1* : This runs *Zypper* Update first if its the first argument or 
+second if its the second argument.
+- *2* : This runs *Flatpak* Update first if its the first argument or 
+second if its the second argument.
+- ANY OTHER ARGUMENTS : Shows Help Menu.
 
 This script has the following functions:
 
@@ -118,13 +124,15 @@ doing the following:
 **Step 1)** Know the commands required to do the entire system update automatically. 
 (For example in opensuse these are `zypper refresh`, `zypper dup -y` and `flatpak update -y`)
 
-**Step 2)** Divide those commands into 2 logical groups
-(For example in opensuse there are **Zypper** upgrade commands(i.e zypper 
-refresh & zypper dup -y) and **Flatpak** update commands (i.e flatpak update -y))
+**Step 2)** Divide those commands into 2 logical groups. 
+(For example in opensuse there are **Zypper** upgrade commands i.e zypper 
+refresh & zypper dup -y and **Flatpak** update commands i.e flatpak update -y)
+
+If unable to form 2 groups empty one of the variables in **Step 3)** ex: `Command1=""`,
+also make sure to empty a Update variable in **Step 4)** ex: `Update1=""` for Command1.
  
 **Step 3)** See Section "**HOW TO CHANGE UPGRADE COMMANDS?:**" and change the
-variables into these command groups in which each command is seperated by a ';'
-if unable to form 2 groups empty one of the variables(ex: comm1="").
+variables into these command groups in which each command is seperated by a ';'.
 (For the given example `Command1="zypper refresh ; zypper dup -y"` and `Command2="flatpak
 update -y"`)
 
