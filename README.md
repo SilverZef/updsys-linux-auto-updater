@@ -14,7 +14,7 @@ executable. Now you can run the script using ./updsys.sh from updsys.sh's
 directory.
 
 **Additional Steps:(This allows the use of this script anywhere on 
-the system)**
+the home system)**
 
 **Step 1)** Open *~/.bashrc* in any editor.
 (Remember to make a backup before any changes)
@@ -119,9 +119,9 @@ doing the following:
 (For example in opensuse these are zypper refresh, zypper dup and flatpak update)
 
 **Step 2)** Divide those commands into 2 logical groups
-(For example in opensuse there are zypper upgrade commands an flatpak update
-commands)
-
+(For example in opensuse there are zypper upgrade commands(i.e zypper 
+refresh & zypper dup) and flatpak update commands (i.e flatpak update))
+ 
 **Step 3)** See Section "**HOW TO CHANGE UPGRADE COMMANDS?:**" and change the
 variables into these command groups in which each command is seperated by a ';'
 if unable to form 2 groups empty one of the variables(ex: comm1="").
